@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formación — SAPERE AUDE</title>
+  <meta name="description" content="Cursos y formación estructurada por categorías: idiomas, matemáticas, ciencias sociales, administración, salud y desarrollo profesional.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Hoja de estilos del proyecto (compartida por todas las páginas) -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- ======================================================
+       HEADER / NAVEGACIÓN PRINCIPAL
+       ====================================================== -->
+  <header class="site-header" id="site-header">
+    <div class="container site-header__inner">
+
+      <a href="index.html" class="logo" aria-label="SAPERE AUDE — Ir al inicio">
+        <span class="logo__mark">SA</span>
+        <span class="logo__text">SAPERE AUDE</span>
+      </a>
+
+      <!-- Botón de menú móvil (se activará con JavaScript en un módulo posterior) -->
+      <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="primary-nav">
+        <span class="nav-toggle__bar"></span>
+        <span class="nav-toggle__bar"></span>
+        <span class="nav-toggle__bar"></span>
+        <span class="sr-only">Abrir menú</span>
+      </button>
+
+      <nav class="primary-nav" id="primary-nav" aria-label="Navegación principal">
+        <ul class="primary-nav__list">
+          <li><a href="index.html" class="primary-nav__link">Inicio</a></li>
+          <li><a href="servicios.html" class="primary-nav__link">Servicios</a></li>
+          <li><a href="formacion.html" class="primary-nav__link is-active">Formación</a></li>
+          <li><a href="recursos.html" class="primary-nav__link">Recursos</a></li>
+          <li><a href="nosotros.html" class="primary-nav__link">Nosotros</a></li>
+          <li><a href="contacto.html" class="primary-nav__link">Contacto</a></li>
+        </ul>
+
+        <div class="primary-nav__actions" id="nav-actions">
+          <a href="login.html" class="btn btn--ghost" data-auth="guest">Iniciar sesión</a>
+          <a href="registro.html" class="btn btn--primary" data-auth="guest">Crear cuenta</a>
+          <span class="nav-greeting" data-auth="user" id="nav-greeting" hidden></span>
+          <a href="dashboard.html" class="btn btn--ghost" data-auth="user" id="nav-dashboard-link" hidden>Mi panel</a>
+          <button type="button" class="btn btn--ghost" data-auth="user" id="nav-logout" hidden>Cerrar sesión</button>
+        </div>
+      </nav>
+
+    </div>
+  </header>
+
+  <main id="main-content">
+    <!-- ======================================================
+         ENCABEZADO DE PÁGINA
+         ====================================================== -->
+    <section class="page-hero" aria-labelledby="page-title">
+      <div class="container page-hero__inner">
+        <p class="page-hero__kicker">Formación</p>
+        <h1 id="page-title" class="page-hero__title">Cursos y formación por categorías</h1>
+        <p class="page-hero__lead">
+          Formación estructurada en las áreas de conocimiento de SAPERE AUDE, con
+          seguimiento del progreso y objetivos claros en cada curso.
+        </p>
+      </div>
+    </section>
+
+    <!-- ======================================================
+         MIS CURSOS (solo usuarios autenticados)
+         Visible/oculto automáticamente por initSessionState() en js/main.js
+         a partir del atributo data-auth="user", igual que el resto del
+         sitio. El contenido real lo dibuja renderMisCursos() dentro de
+         initFormacionPage().
+         ====================================================== -->
+    <section class="section dashboard-section" id="mis-cursos" data-auth="user" hidden aria-labelledby="mis-cursos-title">
+      <div class="container">
+        <div class="dashboard-section__header">
+          <h2 id="mis-cursos-title" class="section__title">Mis cursos</h2>
+        </div>
+
+        <!-- Rellenado por renderMisCursos() en js/main.js -->
+        <div class="reservas-grid" id="mis-cursos-lista" hidden></div>
+
+        <div class="reservas-empty" id="mis-cursos-vacia" hidden>
+          <p>¡Aún no tienes cursos inscritos!</p>
+          <a href="#courses-title" class="btn btn--primary">Explorar formación</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================
+         CATEGORÍAS
+         ====================================================== -->
+    <section class="section knowledge-areas" aria-labelledby="categories-title">
+      <div class="container">
+        <div class="section__header">
+          <h2 id="categories-title" class="section__title">Categorías</h2>
+          <p class="section__lead">Explora la formación disponible por área de conocimiento.</p>
+        </div>
+        <ul class="knowledge-areas__list">
+          <li class="knowledge-areas__item">Idiomas</li>
+          <li class="knowledge-areas__item">Matemáticas</li>
+          <li class="knowledge-areas__item">Ciencias sociales</li>
+          <li class="knowledge-areas__item">Administración</li>
+          <li class="knowledge-areas__item">Salud</li>
+          <li class="knowledge-areas__item">Desarrollo profesional</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ======================================================
+         MODALIDADES
+         ====================================================== -->
+    <section class="section" aria-labelledby="modalities-title">
+      <div class="container">
+        <div class="section__header">
+          <h2 id="modalities-title" class="section__title">Modalidades</h2>
+          <p class="section__lead">La formación virtual de SAPERE AUDE se ofrece en distintos formatos.</p>
+        </div>
+        <ul class="knowledge-areas__list">
+          <li class="knowledge-areas__item">Cursos virtuales por áreas</li>
+          <li class="knowledge-areas__item">Microclases</li>
+          <li class="knowledge-areas__item">Programas de nivelación académica</li>
+          <li class="knowledge-areas__item">Cursos de preparación de ingreso a la universidad</li>
+          <li class="knowledge-areas__item">Talleres</li>
+          <li class="knowledge-areas__item">Bootcamps intensivos</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ======================================================
+         CURSOS (contenido demostrativo)
+         ====================================================== -->
+    <section class="section services" aria-labelledby="courses-title">
+      <div class="container">
+        <div class="section__header">
+          <h2 id="courses-title" class="section__title">Cursos destacados</h2>
+          <p class="section__lead">
+            Cursos de ejemplo mientras se habilita el catálogo completo dentro de la plataforma.
+          </p>
+        </div>
+
+        <div class="courses__grid" id="formacion-cursos-grid">
+
+          <article class="course-card" data-course-id="ingles-conversacional">
+            <div class="course-card__meta">
+              <span class="tag">Idiomas</span>
+              <span class="tag tag--outline">Nivel A2–B1</span>
+            </div>
+            <h3 class="course-card__title">Inglés conversacional</h3>
+            <p class="course-card__text">
+              Práctica oral guiada y vocabulario aplicado a situaciones cotidianas y profesionales.
+            </p>
+            <div class="course-card__footer">
+              <span class="course-card__duration">6 semanas</span>
+              <button type="button" class="btn btn--secondary" data-action="ver-curso">Ver curso</button>
+            </div>
+          </article>
+
+          <article class="course-card" data-course-id="frances-basico">
+            <div class="course-card__meta">
+              <span class="tag">Idiomas</span>
+              <span class="tag tag--outline">Nivel A1</span>
+            </div>
+            <h3 class="course-card__title">Francés básico</h3>
+            <p class="course-card__text">
+              Fundamentos de gramática, pronunciación y comprensión para comenzar desde cero.
+            </p>
+            <div class="course-card__footer">
+              <span class="course-card__duration">8 semanas</span>
+              <button type="button" class="btn btn--secondary" data-action="ver-curso">Ver curso</button>
+            </div>
+          </article>
+
+          <article class="course-card" data-course-id="calculo-diferencial">
+            <div class="course-card__meta">
+              <span class="tag tag--bronze">Matemáticas</span>
+              <span class="tag tag--outline">Nivel intermedio</span>
+            </div>
+            <h3 class="course-card__title">Cálculo diferencial aplicado</h3>
+            <p class="course-card__text">
+              Resolución de problemas paso a paso, con énfasis en la interpretación de resultados.
+            </p>
+            <div class="course-card__footer">
+              <span class="course-card__duration">10 semanas</span>
+              <button type="button" class="btn btn--secondary" data-action="ver-curso">Ver curso</button>
+            </div>
+          </article>
+
+          <article class="course-card" data-course-id="gestion-proyectos">
+            <div class="course-card__meta">
+              <span class="tag tag--bronze">Administración</span>
+              <span class="tag tag--outline">Nivel básico</span>
+            </div>
+            <h3 class="course-card__title">Fundamentos de gestión de proyectos</h3>
+            <p class="course-card__text">
+              Introducción al ciclo de proyectos: formulación, ejecución, seguimiento y evaluación.
+            </p>
+            <div class="course-card__footer">
+              <span class="course-card__duration">5 semanas</span>
+              <button type="button" class="btn btn--secondary" data-action="ver-curso">Ver curso</button>
+            </div>
+          </article>
+
+          <article class="course-card" data-course-id="enfermeria-clinica">
+            <div class="course-card__meta">
+              <span class="tag">Salud</span>
+              <span class="tag tag--outline">Nivel intermedio</span>
+            </div>
+            <h3 class="course-card__title">Fundamentos de enfermería clínica</h3>
+            <p class="course-card__text">
+              Conceptos clave y buenas prácticas orientadas al desempeño en contextos clínicos.
+            </p>
+            <div class="course-card__footer">
+              <span class="course-card__duration">12 semanas</span>
+              <button type="button" class="btn btn--secondary" data-action="ver-curso">Ver curso</button>
+            </div>
+          </article>
+
+          <article class="course-card" data-course-id="habilidades-analiticas">
+            <div class="course-card__meta">
+              <span class="tag tag--bronze">Desarrollo profesional</span>
+              <span class="tag tag--outline">Todo nivel</span>
+            </div>
+            <h3 class="course-card__title">Habilidades analíticas para equipos</h3>
+            <p class="course-card__text">
+              Herramientas prácticas para estructurar el pensamiento analítico en el trabajo diario.
+            </p>
+            <div class="course-card__footer">
+              <span class="course-card__duration">4 semanas</span>
+              <button type="button" class="btn btn--secondary" data-action="ver-curso">Ver curso</button>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================
+         LLAMADO A LA ACCIÓN FINAL
+         ====================================================== -->
+    <section class="section cta-final" aria-labelledby="cta-final-title">
+      <div class="container cta-final__inner">
+        <h2 id="cta-final-title" class="cta-final__title">Empieza a aprender hoy</h2>
+        <p class="cta-final__text">
+          Crea tu cuenta para inscribirte en los cursos y llevar el seguimiento de tu progreso.
+        </p>
+        <div class="cta-final__actions">
+          <a href="registro.html" class="btn btn--primary btn--lg">Crear cuenta</a>
+          <a href="recursos.html" class="btn btn--ghost btn--lg">Ver recursos</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ======================================================
+       FOOTER
+       ====================================================== -->
+  <footer class="site-footer">
+    <div class="container site-footer__inner">
+
+      <div class="site-footer__brand">
+        <span class="logo__text">SAPERE AUDE</span>
+        <p class="site-footer__tagline">E-Learning & Consultoría</p>
+        <a href="https://www.instagram.com/sapere.aude.asesorias" class="site-footer__social" target="_blank" rel="noopener">@sapere.aude.asesorias</a>
+      </div>
+
+      <nav class="site-footer__col" aria-label="Plataforma">
+        <h3 class="site-footer__heading">Plataforma</h3>
+        <ul>
+          <li><a href="servicios.html">Servicios</a></li>
+          <li><a href="formacion.html">Formación</a></li>
+          <li><a href="recursos.html">Recursos</a></li>
+        </ul>
+      </nav>
+
+      <nav class="site-footer__col" aria-label="Empresa">
+        <h3 class="site-footer__heading">Empresa</h3>
+        <ul>
+          <li><a href="nosotros.html">Nosotros</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </nav>
+
+      <nav class="site-footer__col" aria-label="Cuenta">
+        <h3 class="site-footer__heading">Cuenta</h3>
+        <ul>
+          <li><a href="login.html">Iniciar sesión</a></li>
+          <li><a href="registro.html">Crear cuenta</a></li>
+        </ul>
+      </nav>
+
+      <div class="site-footer__bottom">
+        <p>&copy; <span id="current-year">2026</span> SAPERE AUDE. Todos los derechos reservados.</p>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Modal de detalle de curso: muestra descripción, módulos, inscripción
+       y progreso, según el estado del usuario (ver initFormacionPage() en
+       js/main.js). Misma estructura que el modal de reservas.html. -->
+  <div class="modal-overlay" id="modal-overlay">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-body">
+      <button type="button" class="modal__close" id="modal-close" aria-label="Cerrar">&times;</button>
+      <div id="modal-body"></div>
+    </div>
+  </div>
+
+  <!-- Script del proyecto (compartido por todas las páginas) -->
+  <script src="js/main.js" defer></script>
+</body>
+</html>
